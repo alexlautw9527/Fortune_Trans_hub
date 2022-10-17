@@ -17,24 +17,24 @@ npm i -D eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import
   "root": true,
   "settings": {},
   "env": {
-    "browser": true, // Enables browser globals like window and document
-    "amd": true, // Enables require() and define() as global variables as per the amd spec.
-    "node": true, // Enables Node.js global variables and Node.js scoping.
+    "browser": true,
+    "amd": true,
+    "node": true,
     "jest/globals": true,
     "es2021": true
   },
   "parserOptions": {
-    "ecmaVersion": 2021, // Use the latest ecmascript standard
-    "sourceType": "module", // Allows using import/export statements
+    "ecmaVersion": 2021,
+    "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true // Enable JSX since we're using React
+      "jsx": true
     }
   },
   "extends": ["airbnb", "prettier", "plugin:testing-library/react", "plugin:jest/recommended"],
   "plugins": ["prettier", "react", "react-hooks", "testing-library", "jest"],
   "rules": {
-    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }], // Use .prettierrc file as source
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // To allow importing .jsx files
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-console": 1,
     "no-unused-vars": 1,
     "import/no-unresolved": 2,
@@ -42,7 +42,6 @@ npm i -D eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import
     "react/jsx-uses-vars": 2,
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off"
-    // add more rules here...
   }
 }
 ```
