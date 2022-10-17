@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+## 安裝 react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npx create-react-app .
+```
 
-## Available Scripts
+## eslint
 
-In the project directory, you can run:
+```
+npm i -D eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-testing-library eslint-plugin-jest jest prettier
+```
 
-### `npm start`
+`.eslintrc.json`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```json
+{
+  "root": true,
+  "settings": {},
+  "env": {
+    "browser": true, // Enables browser globals like window and document
+    "amd": true, // Enables require() and define() as global variables as per the amd spec.
+    "node": true, // Enables Node.js global variables and Node.js scoping.
+    "jest/globals": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021, // Use the latest ecmascript standard
+    "sourceType": "module", // Allows using import/export statements
+    "ecmaFeatures": {
+      "jsx": true // Enable JSX since we're using React
+    }
+  },
+  "extends": ["airbnb", "prettier", "plugin:testing-library/react", "plugin:jest/recommended"],
+  "plugins": ["prettier", "react", "react-hooks", "testing-library", "jest"],
+  "rules": {
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }], // Use .prettierrc file as source
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // To allow importing .jsx files
+    "no-console": 1,
+    "no-unused-vars": 1,
+    "import/no-unresolved": 2,
+    "no-undefined": 2,
+    "react/jsx-uses-vars": 2,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+    // add more rules here...
+  }
+}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`.eslintignore`
 
-### `npm test`
+```
+node_modules
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`.prettierrc`
 
-### `npm run build`
+```
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "endOfLine": "auto"
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`.prettierignore`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+node_modules
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Visual Studio Code 設定
 
-### `npm run eject`
+`/.vscode/settings.json`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.json"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.configPath": ".prettierrc"
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 安裝 tailwind
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
 
-## Learn More
+```css
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install -D prettier prettier-plugin-tailwindcss
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Ref
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://dev.to/chandelieraxel/why-do-react-need-to-be-in-scope-for-jsx-3hen
+https://dev.to/youssefzidan/configuring-eslint-in-react-with-prettier-react-testing-library-jest-and-airbnb-2hi
