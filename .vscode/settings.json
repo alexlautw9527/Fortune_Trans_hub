@@ -1,5 +1,5 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -18,5 +18,6 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "javascript.preferences.quoteStyle": "double",
-  "prettier.configPath": ".prettierrc"
+  "prettier.configPath": ".prettierrc",
+  "jest.autoRun": "false"
 }
